@@ -8,11 +8,13 @@ This is a TypeScript library that provides key utilities to make writing TypeScr
 
 ### pipe
 
-The `pipe` function facilitates pipeing a value from a chain of functions. The usage would look as follows:
+The `pipe` function facilitates pipeing a value through a chain of functions. The usage looks as follows:
 
 ```TypeScript
 pipe('Bob', uppercase, dashSeparate) // => 'B-O-B'
 ```
+
+In the above example we have a chain of two functions, `uppercase` and `dashSeparate`. The input, `'Bob'` is passinto the `uppercase` function as input and then the output from `uppercase` is piped as input to the `dashSeparate` function. Then the output from `dashSeparate` is returned as the return value of `pipe` in this example.
 
 ### compose
 
@@ -22,5 +24,7 @@ The `compose` function composes the given functions into a new function that cha
 const uppercaseAndDashSeparate = compose(uppercase, dashSeparate)
 uppercaseAndDashSeparate('Bob') // => 'B-O-B'
 ```
+
+In the above example we `compose` the `uppercase` function together with the `dashSeparate` function to create a new function called `uppercaseAndDashSeparate`. This is a contrived example but this is an extremely valuable utility. In fact it is the basis of the `pipe` function as well.
 
 [UpTech]: https://upte.ch
