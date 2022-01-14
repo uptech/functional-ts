@@ -14,7 +14,7 @@ The `pipe` function facilitates pipeing a value through a chain of functions. Th
 pipe('Bob', uppercase, dashSeparate) // => 'B-O-B'
 ```
 
-In the above example we have a chain of two functions, `uppercase` and `dashSeparate`. The input, `'Bob'` is passinto the `uppercase` function as input and then the output from `uppercase` is piped as input to the `dashSeparate` function. Then the output from `dashSeparate` is returned as the return value of `pipe` in this example.
+In the above example we have a chain of two functions, `uppercase` and `dashSeparate`. The input, `'Bob'` is passed into the `uppercase` function as input and then the output from `uppercase` is piped as input to the `dashSeparate` function. Then the output from `dashSeparate` is returned as the return value of `pipe` in this example.
 
 ### compose
 
