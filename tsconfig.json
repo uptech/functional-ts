@@ -5,6 +5,10 @@
 		"declaration": true,
 		"outDir": "./dist",
 	},
+	"typedocOptions": {
+		"entryPoints": ["src/index.ts"],
+		"out": "docs"
+	},
 	"include": [
 		"src/**/*"
 	]

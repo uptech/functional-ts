@@ -30,6 +30,12 @@ npm run run
 npm run test
 ```
 
+## Build Docs
+
+```
+npm run docs
+```
+
 ## Publish Library to NPM
 
 ```

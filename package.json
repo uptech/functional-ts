@@ -14,13 +14,15 @@
     "build": "npx tsc",
     "run": "node ./build/main.js",
     "r": "npm run build && npm run run",
-    "test": "npx jest"
+    "test": "npx jest",
+		"docs": "npx typedoc"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^17.0.5",
     "jest": "^27.4.5",
     "ts-node": "^10.4.0",
+    "typedoc": "^0.22.10",
     "typescript": "^4.5.4"
   },
   "dependencies": {
