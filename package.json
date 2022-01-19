@@ -1,6 +1,6 @@
 {
   "name": "@uptechworks/functional-ts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "UpTech's Functional TypeScript utilities library",
   "author": "",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "run": "node ./build/main.js",
     "r": "npm run build && npm run run",
     "test": "npx jest",
-		"docs": "npx typedoc"
+    "docs": "npx typedoc"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
