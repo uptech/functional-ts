@@ -15,11 +15,37 @@ import { compose } from './compose'
  *
  * @param f function of form (A) -> B
  * @param g function of form (B) -> C
+ * @param h function of form (C) -> D
  * @typeParam A input type for the `f` function & initial pipe input
  * @typeParam B input type for the `g` function & output type of function `f`
  * @typeParam C return type for the `g` function & `pipe`
+ * @typeParam D return type for the `h` function & `pipe`
  * @returns output from the function chain
  */
-export function pipe<A, B, C>(a: A, f: (a: A) => B, g: (b: B) => C): C {
-  return compose(f, g)(a)
+export function pipe<A>(a: A): A
+export function pipe<A, B>(a: A, f: (a: A) => B): B
+export function pipe<A, B, C>(a: A, f: (a: A) => B, g: (b: B) => C): C
+export function pipe<A, B, C, D>(
+  a: A,
+  f: (a: A) => B,
+  g: (b: B) => C,
+  h: (c: C) => D,
+): D
+
+export function pipe(
+  a: unknown,
+  f?: Function,
+  g?: Function,
+  h?: Function,
+): unknown {
+  switch (arguments.length) {
+    case 1:
+      return a
+    case 2:
+      return f!(a)
+    case 3:
+      return g!(f!(a))
+    case 4:
+      return h!(g!(f!(a)))
+  }
 }
