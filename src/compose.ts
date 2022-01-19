@@ -18,13 +18,31 @@
  *
  * @param f function of form (A) -> B
  * @param g function of form (B) -> C
+ * @param h optional function of form (C) -> D
  * @typeParam A input type for the `f` function
  * @typeParam B input type for the `g` function
  * @typeParam C return type for the `g` function & composed function
- * @returns composed function implementing chain of form (A) -> C
+ * @typeParam D return type for the option `h` function & composed function
+ * @returns composed function implementing chain of form (A) -> C | D
  */
-export function compose<A, B, C>(f: (a: A) => B, g: (b: B) => C): (a: A) => C {
-  return (a: A) => {
-    return g(f(a))
+export function compose<A, B, C>(f: (a: A) => B, g: (b: B) => C): (a: A) => C
+export function compose<A, B, C, D>(
+  f: (a: A) => B,
+  g: (b: B) => C,
+  h: (c: C) => D,
+): (a: A) => D
+
+export function compose(f: Function, g: Function, h?: Function): Function {
+  switch (arguments.length) {
+    case 1:
+      return f
+    case 2:
+      return (a: unknown) => {
+        return g(f(a))
+      }
+    case 3:
+      return (a: unknown) => {
+        return h!(g(f(a)))
+      }
   }
 }
